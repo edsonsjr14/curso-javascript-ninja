@@ -34,7 +34,7 @@ Crie uma função chamada `showTeamPosition` com as seguintes características:
     "Não temos a informação do time que está nessa posição."
 */
 var showTeamPosition = function(pos){
-	if(pos <= 5) console.log('O time que está em '+ pos + 'º lugar é o '+ teams[--pos] +'.');
+	if(pos >= 1 && pos <= 5) console.log('O time que está em '+ pos + 'º lugar é o '+ teams[--pos] +'.');
 	else console.log('Não temos a informação do time que está nessa posição.');
 }
 
