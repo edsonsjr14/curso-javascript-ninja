@@ -15,7 +15,7 @@
 	var five = Number('5');
 	console.log( five + ' é número?', typeof five === 'number' );
 
-	var concat = String(10 + 10);
+	var concat = String('10' + '10');
 	console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
 
 	/*
@@ -46,7 +46,7 @@
 	- O desafio é fazer o retorno sem usar "if" ou "switch".
 	*/
 	function isOperatorValid(operador){
-		return ((operador === '+') || (operador === '-') || (operador === '*') || (operador === '/') || (operador === '%'));
+		return (!!operation[operador]);
 	}
 	/*
 	Agora vamos criar a calculadora.
@@ -129,12 +129,19 @@
 	*/
 	operationSignal = '-';
 	var subtraction = calculator(operationSignal);
+	console.log(subtraction ? showOperationMessage(operationSignal, number1, number2) + subtraction(number1, number2) : showErrorMessage(operationSignal));
+	
 	operationSignal = '*';
 	var multiplication = calculator(operationSignal);
+	console.log(multiplication ? showOperationMessage(operationSignal, number1, number2) + multiplication(number1, number2) : showErrorMessage(operationSignal));
+	
 	operationSignal = '/';
 	var division = calculator(operationSignal);
+	console.log(division ? showOperationMessage(operationSignal, number1, number2) + division(number1, number2) : showErrorMessage(operationSignal));
+	
 	operationSignal = '%';
 	var mod = calculator(operationSignal);
+	console.log(mod ? showOperationMessage(operationSignal, number1, number2) + mod(number1, number2) : showErrorMessage(operationSignal));
 
 	/*
 	Repita o PASSO 2 novamente, mas passando um operador inválido, para ver se
