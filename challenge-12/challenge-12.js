@@ -14,9 +14,9 @@
 	de valor para cada propriedade.
 	*/
 	var person = {
-		'name' : 'Edson',
-		'lastname' : 'de Senna Junior',
-		'age' : 21
+		name : 'Edson',
+		lastname : 'de Senna Junior',
+		age : 21
 	};
 	console.log( 'Propriedades de "person":');
 
@@ -24,7 +24,7 @@
 	Mostre no console, em um array, todas as propriedades do objeto acima.
 	Não use nenhuma estrutura de repetição, nem crie o array manualmente.
 	*/
-	console.log(person);
+	console.log(Object.keys( person ));
 
 	/*
 	Crie um array vazio chamado `books`.
