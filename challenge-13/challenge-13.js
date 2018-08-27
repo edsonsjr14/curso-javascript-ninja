@@ -140,7 +140,6 @@
     console.log( '\nCeará está incluído em `brasil`?' );
     var msg = 'Ceará não foi incluído :(';
     brasil.some(function(item){
-        console.log(item);
         if(item === 'Ceará') msg = 'Ceará está incluído!';
     });
     console.log(msg);
