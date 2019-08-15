@@ -27,9 +27,10 @@
     - Atribua essa regex à uma variável chamada `justNumbersRegex` e mostre-a
     no console:
     */
-    var justNumbersRegex = new RegExp('^[0-9]+', 'gm');
     console.log( 'Regex para números usando o construtor:' );
+    var justNumbersRegex = new RegExp('^\\d+', 'gm');
     console.log(justNumbersRegex);
+    // ?
 
     /*
     Verifique se a regex acima casa com o texto na variável `text`, mostrando o
@@ -39,6 +40,7 @@
     var text = '10 anos.\n50 discos vendidos.\nE nem 10% dos meus amigos o conhece.';
     console.log( '\nNúmeros no início da linha do texto:\n' + text, '\n' );
     console.log(text.match(justNumbersRegex));
+    // ?
 
     /*
     - Crie uma regex que case com números no final de uma string. Atribua a
@@ -85,21 +87,16 @@
     qualquer classe que for testada. Os dados passados no exercício são somente
     para exemplificar.
     */
-    var hasClass = function(markup, cssClass){
-
-        var markupHasClass = new RegExp('[class="'+markup+'"]+', 'gm');
-        console.log(cssClass.match(markupHasClass));
-        return cssClass.match(markupHasClass).length > 0;
-    }
-
-
     var markup = '<main>\n  <div class="container">\n    <span class="text date"></span>\n    <p class=\'excerpt\'></p>\n  </div>\n</main>';
     console.log( '\nQuais classes CSS existem na marcação abaixo?\n\n', markup, '\n' );
-    console.log(hasClass(markup, "container")+" para a classe container");
-    console.log(hasClass(markup, "text")+" para a classe text");
-    console.log(hasClass(markup, "date")+" para a classe date");
-    console.log(hasClass(markup, "excerpt")+" para a classe excerpt");
-    console.log(hasClass(markup, "main")+" para a classe main");
     
+    function hasClass(markup, cssClass){
+        var regex = new RegExp( 'class=["\'](?:[\\w\\s]+)?' + cssClass + '(?:[\\w\\s]+)?["\']');
+        return regex.test( markup );
+    }
+    var classes = ['container', 'text', 'date', 'excerpt', 'main'];
+    classes.forEach(function(cssClass){
+        console.log(hasClass(markup, cssClass) + ' para a classe ' + cssClass);
+    });
 
-}());
+})();
