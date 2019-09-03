@@ -28,21 +28,28 @@ dado ao elemento HTML deve definir o que o elemento é ou o que ele faz.
 
     var cronometro;
 
-    $buttonStart.addEventListener('click', function(){
-        timer();
-    }, false);
-    $buttonStop.addEventListener('click', function(){
-        clearTimeout(cronometro);
-    }, false);
-    $buttonReset.addEventListener('click', function(){
-        $inputCronometro.value = 0;
-    }, false);
+    $buttonStart.addEventListener('click', startTimer, false);
+    $buttonStop.addEventListener('click', stopTimer, false);
+    $buttonReset.addEventListener('click', resetTimer, false);
 
-    function timer() {
+    function startTimer() {
 
         $inputCronometro.value++;
-        cronometro = setTimeout(timer, 1000);
+        cronometro = setTimeout(startTimer, 1000);
 
+    }
+
+    function stopTimer() {
+
+        clearTimeout(cronometro);
+
+    }
+
+    function resetTimer() {
+
+        $inputCronometro.value = 0;
+
+        stopTimer();
     }
 
 
